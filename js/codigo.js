@@ -1,9 +1,10 @@
 function exec(e){
+   
     e.preventDefault()
     if(validar()){
         adicionarCoisa();
     }
-
+    removerCoisa();
     let x = document.getElementById('lista')
     let a = x.getElementsByTagName('span');
     //console.log(x.rows.length)
@@ -38,15 +39,40 @@ function adicionarCoisa() {
     
 
     //let sp = clon.getElementsByTagName('span');
-    
-    
 }
+
+function removerCoisa(coisa){
+    console.log(getLista().rows);
+    console.log(getLista().getElementsByTagName('span')[0].firstChild.textContent)
+}
+
+function checkCoisa(){
+
+} 
+
+function getPosCoisaLista(coisa){
+    i = 0;
+    for(coisa in getLista()){
+        
+        if()
+    }
+}
+function getCoisa(){
+    let x = document.forms["form-entrada"]["fentrada"].value;
+    return x;
+}
+
 function alterarValorLista(){
 
     let x = document.getElementById("lista");
     x.value = listaTamanho();
     console.log(x.value)
     
+}
+
+function getLista(){
+    let x = document.getElementById('lista');
+    return x;
 }
 function listaVazia(){
     let x = document.getElementById('lista');
@@ -59,25 +85,22 @@ function listaTamanho(){
 
 //document.getElementById('lista').addEventListener(listaVazia(), mudarEstadoVazio());
 function mudarEstadoVazio(){
-    console.log("aqui 1");
+    
     let x = document.getElementById('h1coisa');
     if(listaVazia()){
         
         x.className = "show";
-        console.log("aqui 12")
+        //console.log("aqui 12")
     }else{
         x.className = "hidden"
-        console.log("aqui 13")
+       // console.log("aqui 13")
     }
-    console.log("aqui 2")
+    //console.log("aqui 2")
 }
 
 
 
-function getCoisa(){
-    let x = document.forms["form-entrada"]["fentrada"].value;
-    return x;
-}
+
 
 
 //Toast
