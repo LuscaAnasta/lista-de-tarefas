@@ -26,6 +26,10 @@ body{
   box-shadow: 10px 10px;
   padding: 20px 0 20px 0;
 }
+
+#coisas{
+transition: 0.5s;
+}
 table, th, td {
   border: none;
   border-spacing: 0px;
@@ -64,10 +68,30 @@ tr:nth-child(even) {
   color: rgb(89, 59, 14);
 }
 
+.interno-coisas h1{
+  font-size: 20px;
+}
 h1{
   font-size: 40px;
   color: black;
   
+}
+
+#h1coisa.show{
+  transition: 0.2s;
+  transform: scale(0.01);
+  visibility: show;
+  margin: auto;
+  height: auto;
+}
+
+#h1coisa.hidden{
+  transition: 0.2s;
+  transform: scale(0.01);
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  height: 0;
 }
 
 #entrada[type=text]{
