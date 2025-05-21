@@ -52,6 +52,15 @@ tr:nth-child(even) {
   padding-bottom: 5px;
   text-align: justify;
   width: 80%;
+  max-width: inherit;
+}
+.span-coisa{
+  display: block; 
+  width: 100px;
+  max-width: 100%;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 .td-btn{
   width: auto;
@@ -81,7 +90,13 @@ h1{
   color: black;
   
 }
+#h1coisa{
+  opacity: 0.5;
 
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 #h1coisa.show{
   transform-origin: center;
   transition: transform 0.1s ease-out, /* Escala */

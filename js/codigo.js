@@ -18,7 +18,7 @@ function validar(){
         tostando("Coisa must be filled...")
         return false;
     }
-    let existente = getPosCoisaLista(getCoisa()) >=0; 
+    let existente = false//getPosCoisaLista(getCoisa()) >=0; 
     if(existente){
         tostando("Coisa already exist...")
         return false;
@@ -27,13 +27,10 @@ function validar(){
 }
 
 function adicionarCoisa() {
-    let i = "";
-    if(getPosCoisaLista(getCoisa()) != -1){
-        
-    }
+    
     let temp = `<tr>
             <td class="td-span lato-regular">
-                <span>${getCoisa()}</span>
+                <span class="span-coisa">${getCoisa()}</span>
             </td>
             <td class="td-btn">
                 <button><i class="fa-solid fa-check"></i></button>
@@ -79,6 +76,7 @@ function getPosCoisaLista(coisa){
     }
     return -1;
 }
+
 function getCoisa(){
     let x = document.forms["form-entrada"]["fentrada"].value;
     return x;
@@ -113,7 +111,7 @@ function mudarEstadoVazio(){
         x.className = "hidden";
        // console.log("aqui 13")
     }
-    console.log("aqui")
+    //console.log("aqui")
 }
 
 
