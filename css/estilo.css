@@ -15,6 +15,7 @@ body{
 .interno-entrada{
   height: 200px;
   border: 1px solid;
+  border-bottom-color: rgb(254, 218, 164);;
   background-color:  rgb(254, 218, 164);
   box-shadow: 10px 10px;
 }
@@ -22,9 +23,10 @@ body{
 .interno-coisas{
   height: auto;
   border: 1px solid;
+  border-top-color: rgb(254, 218, 164);;
   background-color:  rgb(254, 218, 164);
   box-shadow: 10px 10px;
-  padding: 20px 0 20px 0;
+  /*padding: 20px 0 20px 0;*/
 }
 
 #coisas{
@@ -39,12 +41,15 @@ table{
 }
 tr{
   width: 100%;
+  padding-bottom: 5px;
 }
 tr:nth-child(even) {
   background-color: rgb(227, 195, 147);
 }
 .td-span{
   padding-left: 10%;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: justify;
   width: 80%;
 }
@@ -78,15 +83,25 @@ h1{
 }
 
 #h1coisa.show{
-  transition: 0.2s;
-  transform: scale(0.01);
+  transform-origin: center;
+  transition: transform 0.1s ease-out, /* Escala */
+              margin 0.1s ease-out,   /* Margens */
+              height 0.1s linear,   /* Altura */
+              padding 0.1s ease-out;  /* Padding */
+  transform: scale(1);
   visibility: show;
-  margin: auto;
+  margin: 10px 0 10px 0;
   height: auto;
 }
 
 #h1coisa.hidden{
-  transition: 0.2s;
+  transform-origin: center;
+  transition: transform 0.1s ease-out,
+              opacity 0.1s ease-out,
+              visibility 0s 0.1s linear, /* visibility fica hidden APÓS 0.2s (quando opacity é 0) */
+              margin 0.1s 0.1s ease-out,
+              height 0.1s 0.1s linear,
+              padding 0.1s 0.1s ease-out;
   transform: scale(0.01);
   visibility: hidden;
   margin: 0;
@@ -99,6 +114,7 @@ h1{
   width: 80%;
   border-radius: 5px;
   border: 0;
+  height: auto;
   padding: 10px;
 }
 
@@ -108,6 +124,7 @@ h1{
   outline-color: rgb(209, 126, 1);
 }
 #btnentrada{
+  height: auto;
   border: solid 0px;
   background-color: rgb(255, 172, 46);
   border-radius: 5px;

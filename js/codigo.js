@@ -4,9 +4,8 @@ function exec(e){
     if(validar()){
         adicionarCoisa();
     }
-    removerCoisa();
-    let x = document.getElementById('lista')
-    let a = x.getElementsByTagName('span');
+    //let x = document.getElementById('lista')
+    //let a = x.getElementsByTagName('span');
     //console.log(x.rows.length)
     //console.log(a[0].firstChild.textContent)
 
@@ -19,17 +18,26 @@ function validar(){
         tostando("Coisa must be filled...")
         return false;
     }
+    let existente = getPosCoisaLista(getCoisa()) >=0; 
+    if(existente){
+        tostando("Coisa already exist...")
+        return false;
+    }
     return true;
 }
 
 function adicionarCoisa() {
+    let i = "";
+    if(getPosCoisaLista(getCoisa()) != -1){
+        
+    }
     let temp = `<tr>
             <td class="td-span lato-regular">
                 <span>${getCoisa()}</span>
             </td>
             <td class="td-btn">
                 <button><i class="fa-solid fa-check"></i></button>
-                <button><i class="fa-solid fa-trash"></i></button>
+                <button onclick=buttonRemover(event)><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>`;
     let clon = document.createElement('tr')
@@ -41,39 +49,50 @@ function adicionarCoisa() {
     //let sp = clon.getElementsByTagName('span');
 }
 
-function removerCoisa(coisa){
-    console.log(getLista().rows);
-    console.log(getLista().getElementsByTagName('span')[0].firstChild.textContent)
+function buttonRemover(event){
+    let a = $(event.target).parents('tr').remove();
+    //$(event.target).parents('tr').getElementsByTagName('span')[0].firstChild.textContent;
+    console.log(a);
+
+    mudarEstadoVazio()
 }
+
 
 function checkCoisa(){
 
 } 
 
+//Alterar Value Lista
+function alterarValorLista(){
+    let x = document.getElementById("lista");
+    x.value = listaTamanho();
+    //console.log(x.value)
+}
+//Getters
 function getPosCoisaLista(coisa){
     i = 0;
-    for(coisa in getLista()){
-        
-        if()
+    for(i = 0;getSpanLista().length>i;i++){
+        //console.log(`pos = ${i + getSpanLista()[i].firstChild.textContent}`)
+        if(getSpanLista()[i].firstChild.textContent == coisa){
+            return i;
+        }
     }
+    return -1;
 }
 function getCoisa(){
     let x = document.forms["form-entrada"]["fentrada"].value;
     return x;
 }
-
-function alterarValorLista(){
-
-    let x = document.getElementById("lista");
-    x.value = listaTamanho();
-    console.log(x.value)
-    
-}
-
 function getLista(){
     let x = document.getElementById('lista');
     return x;
 }
+function getSpanLista(){
+    let x = getLista().getElementsByTagName('span');
+    return x;
+}
+
+//Verificar estado
 function listaVazia(){
     let x = document.getElementById('lista');
     return x.rows.length == 0;
@@ -83,24 +102,19 @@ function listaTamanho(){
     return x.rows.length;
 }
 
-//document.getElementById('lista').addEventListener(listaVazia(), mudarEstadoVazio());
+
+//Add/Remove Mensagem Lista Vazia;
 function mudarEstadoVazio(){
-    
     let x = document.getElementById('h1coisa');
     if(listaVazia()){
-        
         x.className = "show";
         //console.log("aqui 12")
     }else{
-        x.className = "hidden"
+        x.className = "hidden";
        // console.log("aqui 13")
     }
-    //console.log("aqui 2")
+    console.log("aqui")
 }
-
-
-
-
 
 
 //Toast
