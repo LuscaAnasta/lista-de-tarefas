@@ -52,15 +52,24 @@ tr:nth-child(even) {
   padding-bottom: 5px;
   text-align: justify;
   width: 80%;
-  max-width: inherit;
-}
-.span-coisa{
-  display: block; 
-  width: 100px;
-  max-width: 100%;
-  overflow: hidden; 
-  white-space: nowrap; 
+  
+/*
+  white-space: nowrap;
   text-overflow: ellipsis;
+*/
+}
+.lista-coisa{
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  width: 550px;
+  color: rgb(89, 59, 14);
+  text-overflow: ellipsis; 
+}
+.lista-coisa.of-off{
+  overflow: visible;
+  text-overflow: clip; 
+  width: 550px;
+  color: rgb(89, 59, 14); 
 }
 .td-btn{
   width: auto;
@@ -76,10 +85,6 @@ tr:nth-child(even) {
 }
 .td-btn button:hover{
   transform: scale(1.2);
-}
-.interno-coisas span{
-  width: 100%;
-  color: rgb(89, 59, 14);
 }
 
 .interno-coisas h1{

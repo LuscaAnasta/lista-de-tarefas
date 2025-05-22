@@ -25,12 +25,14 @@ function validar(){
     }
     return true;
 }
-
+function clickando(event){
+    console.log("teste")
+    }
 function adicionarCoisa() {
     
     let temp = `<tr>
             <td class="td-span lato-regular">
-                <span class="span-coisa">${getCoisa()}</span>
+                <div class="lista-coisa" onclick=clickando(event)>${getCoisa()}</div>
             </td>
             <td class="td-btn">
                 <button><i class="fa-solid fa-check"></i></button>
